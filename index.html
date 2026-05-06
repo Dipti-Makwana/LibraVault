@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LibraVault — Library Management System</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">Libra<span>Vault</span></a>
+  <ul class="nav-links">
+    <li><a href="#features">Features</a></li>
+    <li><a href="#demo">Live Demo</a></li>
+    <li><a href="#schema">Schema</a></li>
+    <li><a href="#stack">Tech Stack</a></li>
+    <li><a href="#setup">Setup</a></li>
+  </ul>
+  <a class="nav-badge" href="https://github.com/Dipti-Makwana/Libravalt" target="_blank">GitHub ↗</a>
+</nav>
+
+<!-- HERO -->
+<section>
+  <div class="hero">
+    <div class="hero-text">
+      <div class="hero-tag">Oracle Internship Project</div>
+      <h1>Library Management <em>System</em></h1>
+      <p>A database-driven application built with Python &amp; Oracle Express to manage books, members, and borrowing records — demonstrating SQL joins, transactions, and relational data design.</p>
+      <div class="btn-group">
+        <a href="#demo" class="btn-primary">▶ Try Live Demo</a>
+        <a href="#setup" class="btn-outline">⚙ Setup Guide</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="stat-grid">
+        <div class="stat-card">
+          <div class="stat-num">2,450</div>
+          <div class="stat-label">Total Books</div>
+          <span class="stat-badge badge-green">↑ 12 this week</span>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">381</div>
+          <div class="stat-label">Active Members</div>
+          <span class="stat-badge badge-blue">↑ 5 new</span>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">147</div>
+          <div class="stat-label">Borrowed Books</div>
+          <span class="stat-badge badge-gold">Due this week</span>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">8</div>
+          <div class="stat-label">Overdue Returns</div>
+          <span class="stat-badge badge-red">Action needed</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="section" id="features">
+  <div class="section-header">
+    <div class="section-label">What it does</div>
+    <div class="section-title">Key Features</div>
+    <p class="section-sub">Every feature is backed by real SQL — joins, constraints, and transactions — designed to be Oracle-internship worthy.</p>
+  </div>
+  <div class="features-grid">
+    <div class="feat-card">
+      <div class="feat-icon" style="background:#fdf5dc;">📚</div>
+      <h3>Book Management (CRUD)</h3>
+      <p>Add, edit, delete, and search books by title, author, genre, or ISBN using optimized Oracle SQL queries.</p>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon" style="background:#e8f4f0;">👥</div>
+      <h3>Member Registration</h3>
+      <p>Register library members, track join dates, email contacts, and enforce unique constraints on email fields.</p>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon" style="background:#fde8d4;">🔄</div>
+      <h3>Borrow &amp; Return</h3>
+      <p>Track borrow/return dates automatically. Books update availability status using COMMIT/ROLLBACK transactions.</p>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon" style="background:#d4e9fc;">🔗</div>
+      <h3>SQL JOIN Reports</h3>
+      <p>Multi-table JOIN queries to generate reports like "all books currently borrowed by a specific member."</p>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon" style="background:#d4f5e9;">🛡</div>
+      <h3>Data Integrity</h3>
+      <p>Foreign key constraints, primary keys, and VARCHAR2 types following Oracle-specific best practices.</p>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon" style="background:#fde0e0;">⚠️</div>
+      <h3>Error Handling</h3>
+      <p>Graceful Python exceptions for "book not found," "member at borrow limit," and DB connection failures.</p>
+    </div>
+  </div>
+</section>
+
+<!-- LIVE DEMO -->
+<section class="demo-section" id="demo">
+  <div class="demo-inner">
+    <div class="section-label">Interactive</div>
+    <div class="section-title">Live Demo</div>
+    <p class="section-sub">Click through the panels below to explore the app. Add books, register members, and process transactions — all powered by simulated Oracle SQL logic.</p>
+
+    <div class="app-shell">
+      <div class="app-topbar">
+        <div class="app-topbar-right" style="order:-1">
+          <div class="dot dot-red"></div>
+          <div class="dot dot-yellow"></div>
+          <div class="dot dot-green"></div>
+        </div>
+        <div class="app-topbar-title">LibraVault — Library Management System</div>
+        <div style="font-size:0.78rem;opacity:0.5;">Python + Oracle XE</div>
+      </div>
+
+      <div class="app-body">
+        <div class="app-sidebar">
+          <div class="sidebar-item active" onclick="showPanel('dashboard', this)">
+            <span class="sidebar-icon">🏠</span> Dashboard
+          </div>
+          <div class="sidebar-item" onclick="showPanel('books', this)">
+            <span class="sidebar-icon">📚</span> Books
+          </div>
+          <div class="sidebar-item" onclick="showPanel('members', this)">
+            <span class="sidebar-icon">👥</span> Members
+          </div>
+          <div class="sidebar-item" onclick="showPanel('transactions', this)">
+            <span class="sidebar-icon">🔄</span> Transactions
+          </div>
+          <div class="sidebar-item" onclick="showPanel('reports', this)">
+            <span class="sidebar-icon">📊</span> Reports
+          </div>
+        </div>
+
+        <div class="app-content">
+
+          <!-- DASHBOARD -->
+          <div class="app-panel active" id="panel-dashboard">
+            <div class="mini-stats">
+              <div class="mini-stat">
+                <div class="mini-stat-num" id="s-books">2450</div>
+                <div class="mini-stat-lbl">Total Books</div>
+              </div>
+              <div class="mini-stat">
+                <div class="mini-stat-num" id="s-members">381</div>
+                <div class="mini-stat-lbl">Members</div>
+              </div>
+              <div class="mini-stat">
+                <div class="mini-stat-num" id="s-borrowed">147</div>
+                <div class="mini-stat-lbl">Borrowed</div>
+              </div>
+              <div class="mini-stat">
+                <div class="mini-stat-num" id="s-overdue">8</div>
+                <div class="mini-stat-lbl">Overdue</div>
+              </div>
+            </div>
+            <div style="background:var(--cream);border-radius:10px;padding:1rem;font-size:0.82rem;color:var(--ink-muted);font-family:'Courier New',monospace;line-height:1.9;">
+              <div style="color:var(--ink-faint);margin-bottom:6px;">-- Recent SQL log</div>
+              <div><span style="color:#b8860b;">SELECT</span> COUNT(*) <span style="color:#b8860b;">FROM</span> Books <span style="color:#b8860b;">WHERE</span> is_available = 'Y';</div>
+              <div><span style="color:#b8860b;">SELECT</span> m.name, b.title <span style="color:#b8860b;">FROM</span> Transactions t</div>
+              <div>&nbsp;&nbsp;<span style="color:#b8860b;">JOIN</span> Books b <span style="color:#b8860b;">ON</span> t.book_id = b.book_id</div>
+              <div>&nbsp;&nbsp;<span style="color:#b8860b;">JOIN</span> Members m <span style="color:#b8860b;">ON</span> t.member_id = m.member_id</div>
+              <div>&nbsp;&nbsp;<span style="color:#b8860b;">WHERE</span> t.return_date &lt; SYSDATE;</div>
+              <div style="color:#6cc77a;margin-top:4px;">→ 8 rows returned (overdue)</div>
+            </div>
+          </div>
+
+          <!-- BOOKS -->
+          <div class="app-panel" id="panel-books">
+            <div class="app-toolbar">
+              <h2>📚 Books</h2>
+              <div class="toolbar-right">
+                <input class="search-box" placeholder="Search title or author..." oninput="filterTable('books-body', this.value)" />
+                <button class="action-btn" onclick="openModal('book')">+ Add Book</button>
+              </div>
+            </div>
+            <table class="data-table">
+              <thead><tr>
+                <th>Title</th><th>Author</th><th>Genre</th><th>ISBN</th><th>Status</th><th>Action</th>
+              </tr></thead>
+              <tbody id="books-body">
+                <tr><td>The Pragmatic Programmer</td><td>Hunt &amp; Thomas</td><td>Tech</td><td>978-0201616224</td><td><span class="pill pill-available">Available</span></td><td><button class="action-btn secondary" onclick="borrowBook(this)">Borrow</button></td></tr>
+                <tr><td>Clean Code</td><td>Robert C. Martin</td><td>Tech</td><td>978-0132350884</td><td><span class="pill pill-borrowed">Borrowed</span></td><td><button class="action-btn secondary" onclick="returnBook(this)">Return</button></td></tr>
+                <tr><td>Design Patterns</td><td>Gang of Four</td><td>Tech</td><td>978-0201633610</td><td><span class="pill pill-available">Available</span></td><td><button class="action-btn secondary" onclick="borrowBook(this)">Borrow</button></td></tr>
+                <tr><td>Dune</td><td>Frank Herbert</td><td>Sci-Fi</td><td>978-0441172719</td><td><span class="pill pill-available">Available</span></td><td><button class="action-btn secondary" onclick="borrowBook(this)">Borrow</button></td></tr>
+                <tr><td>1984</td><td>George Orwell</td><td>Fiction</td><td>978-0451524935</td><td><span class="pill pill-borrowed">Borrowed</span></td><td><button class="action-btn secondary" onclick="returnBook(this)">Return</button></td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- MEMBERS -->
+          <div class="app-panel" id="panel-members">
+            <div class="app-toolbar">
+              <h2>👥 Members</h2>
+              <div class="toolbar-right">
+                <input class="search-box" placeholder="Search members..." oninput="filterTable('members-body', this.value)" />
+                <button class="action-btn" onclick="openModal('member')">+ Add Member</button>
+              </div>
+            </div>
+            <table class="data-table">
+              <thead><tr>
+                <th>Name</th><th>Email</th><th>Join Date</th><th>Books Borrowed</th><th>Status</th>
+              </tr></thead>
+              <tbody id="members-body">
+                <tr><td>Arjun Mehta</td><td>arjun@example.com</td><td>2024-01-15</td><td>2</td><td><span class="pill pill-active">Active</span></td></tr>
+                <tr><td>Priya Sharma</td><td>priya@example.com</td><td>2024-02-20</td><td>0</td><td><span class="pill pill-active">Active</span></td></tr>
+                <tr><td>Rahul Verma</td><td>rahul@example.com</td><td>2023-11-05</td><td>3</td><td><span class="pill pill-overdue">Overdue</span></td></tr>
+                <tr><td>Neha Patel</td><td>neha@example.com</td><td>2024-03-10</td><td>1</td><td><span class="pill pill-active">Active</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- TRANSACTIONS -->
+          <div class="app-panel" id="panel-transactions">
+            <div class="app-toolbar">
+              <h2>🔄 Transactions</h2>
+            </div>
+            <table class="data-table">
+              <thead><tr>
+                <th>ID</th><th>Book</th><th>Member</th><th>Borrow Date</th><th>Due Date</th><th>Status</th>
+              </tr></thead>
+              <tbody id="txn-body">
+                <tr><td>TXN-001</td><td>Clean Code</td><td>Arjun Mehta</td><td>2025-04-20</td><td>2025-05-04</td><td><span class="pill pill-borrowed">Active</span></td></tr>
+                <tr><td>TXN-002</td><td>1984</td><td>Rahul Verma</td><td>2025-04-10</td><td>2025-04-24</td><td><span class="pill pill-overdue">Overdue</span></td></tr>
+                <tr><td>TXN-003</td><td>Dune</td><td>Neha Patel</td><td>2025-04-28</td><td>2025-05-12</td><td><span class="pill pill-borrowed">Active</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- REPORTS -->
+          <div class="app-panel" id="panel-reports">
+            <div class="app-toolbar">
+              <h2>📊 SQL JOIN Report</h2>
+            </div>
+            <div style="background:var(--cream);border-radius:10px;padding:1rem;font-size:0.8rem;color:var(--ink-muted);font-family:'Courier New',monospace;line-height:1.85;margin-bottom:1.2rem;">
+              <span style="color:var(--ink-faint);">-- Books currently borrowed with member info</span><br>
+              <span style="color:#b8860b;">SELECT</span> m.name, m.email, b.title, b.author, t.borrow_date, t.return_date<br>
+              <span style="color:#b8860b;">FROM</span> Transactions t<br>
+              <span style="color:#b8860b;">JOIN</span> Books b <span style="color:#b8860b;">ON</span> t.book_id = b.book_id<br>
+              <span style="color:#b8860b;">JOIN</span> Members m <span style="color:#b8860b;">ON</span> t.member_id = m.member_id<br>
+              <span style="color:#b8860b;">WHERE</span> b.is_available = <span style="color:#6cc77a;">'N'</span><br>
+              <span style="color:#b8860b;">ORDER BY</span> t.borrow_date <span style="color:#b8860b;">DESC</span>;
+            </div>
+            <table class="data-table">
+              <thead><tr>
+                <th>Member</th><th>Email</th><th>Book Title</th><th>Author</th><th>Borrow Date</th><th>Due</th>
+              </tr></thead>
+              <tbody>
+                <tr><td>Arjun Mehta</td><td>arjun@example.com</td><td>Clean Code</td><td>Martin</td><td>Apr 20</td><td>May 4</td></tr>
+                <tr><td>Rahul Verma</td><td>rahul@example.com</td><td>1984</td><td>Orwell</td><td>Apr 10</td><td><span style="color:var(--red);font-weight:600;">Apr 24 ⚠</span></td></tr>
+                <tr><td>Neha Patel</td><td>neha@example.com</td><td>Dune</td><td>Herbert</td><td>Apr 28</td><td>May 12</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+        </div><!-- app-content -->
+      </div><!-- app-body -->
+    </div><!-- app-shell -->
+  </div>
+</section>
+
+<!-- SCHEMA -->
+<section class="schema-section" id="schema">
+  <div class="section-label">Relational Design</div>
+  <div class="section-title">Database Schema</div>
+  <p class="section-sub">Three normalized tables with Oracle-specific data types, primary keys, and foreign key constraints.</p>
+  <div class="schema-grid">
+    <div class="schema-card">
+      <div class="schema-head">Books <small>📚 Core table</small></div>
+      <div class="schema-row"><span class="schema-col">book_id<span class="schema-key key-pk">PK</span></span><span class="schema-type">NUMBER</span></div>
+      <div class="schema-row"><span class="schema-col">title</span><span class="schema-type">VARCHAR2(255)</span></div>
+      <div class="schema-row"><span class="schema-col">author</span><span class="schema-type">VARCHAR2(100)</span></div>
+      <div class="schema-row"><span class="schema-col">isbn</span><span class="schema-type">VARCHAR2(20)</span></div>
+      <div class="schema-row"><span class="schema-col">genre</span><span class="schema-type">VARCHAR2(50)</span></div>
+      <div class="schema-row"><span class="schema-col">is_available</span><span class="schema-type">CHAR(1) 'Y'/'N'</span></div>
+    </div>
+    <div class="schema-card">
+      <div class="schema-head">Members <small>👥 Users</small></div>
+      <div class="schema-row"><span class="schema-col">member_id<span class="schema-key key-pk">PK</span></span><span class="schema-type">NUMBER</span></div>
+      <div class="schema-row"><span class="schema-col">name</span><span class="schema-type">VARCHAR2(100)</span></div>
+      <div class="schema-row"><span class="schema-col">email</span><span class="schema-type">VARCHAR2(100) UNIQUE</span></div>
+      <div class="schema-row"><span class="schema-col">join_date</span><span class="schema-type">DATE</span></div>
+      <div class="schema-row"><span class="schema-col">phone</span><span class="schema-type">VARCHAR2(15)</span></div>
+      <div class="schema-row"><span class="schema-col">max_books</span><span class="schema-type">NUMBER DEFAULT 3</span></div>
+    </div>
+    <div class="schema-card">
+      <div class="schema-head">Transactions <small>🔄 Borrow log</small></div>
+      <div class="schema-row"><span class="schema-col">transaction_id<span class="schema-key key-pk">PK</span></span><span class="schema-type">NUMBER</span></div>
+      <div class="schema-row"><span class="schema-col">book_id<span class="schema-key key-fk">FK</span></span><span class="schema-type">NUMBER</span></div>
+      <div class="schema-row"><span class="schema-col">member_id<span class="schema-key key-fk">FK</span></span><span class="schema-type">NUMBER</span></div>
+      <div class="schema-row"><span class="schema-col">borrow_date</span><span class="schema-type">DATE</span></div>
+      <div class="schema-row"><span class="schema-col">return_date</span><span class="schema-type">DATE</span></div>
+      <div class="schema-row"><span class="schema-col">status</span><span class="schema-type">VARCHAR2(10)</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- TECH STACK -->
+<section class="section" id="stack">
+  <div class="section-header">
+    <div class="section-label">Built With</div>
+    <div class="section-title">Tech Stack</div>
+  </div>
+  <div class="tech-grid">
+    <div class="tech-card">
+      <div class="tech-logo">🐍</div>
+      <div class="tech-name">Python 3.x</div>
+      <div class="tech-desc">Core application logic &amp; DB interface</div>
+    </div>
+    <div class="tech-card">
+      <div class="tech-logo">🔶</div>
+      <div class="tech-name">Oracle XE</div>
+      <div class="tech-desc">Database engine (Express Edition)</div>
+    </div>
+    <div class="tech-card">
+      <div class="tech-logo">🔌</div>
+      <div class="tech-name">python-oracledb</div>
+      <div class="tech-desc">Official Oracle Python driver</div>
+    </div>
+    <div class="tech-card">
+      <div class="tech-logo">🐙</div>
+      <div class="tech-name">Git / GitHub</div>
+      <div class="tech-desc">Version control &amp; collaboration</div>
+    </div>
+  </div>
+</section>
+
+<!-- SETUP -->
+<section class="section" id="setup" style="border-top:1px solid var(--cream-darker);">
+  <div class="section-header">
+    <div class="section-label">Getting Started</div>
+    <div class="section-title">Setup Guide</div>
+    <p class="section-sub">Get the project running locally in four steps.</p>
+  </div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <h4>Clone the repository</h4>
+        <p>Download the source code to your local machine.</p>
+        <code>git clone https://github.com/Dipti-Makwana/library-management-system.git<br>cd library-management-system</code>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <h4>Install the Oracle Python driver</h4>
+        <p>Uses Oracle's official modern thin driver — no Oracle Client installation needed.</p>
+        <code>pip install oracledb</code>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <h4>Create the database schema</h4>
+        <p>Run the provided SQL file in SQL*Plus or SQL Developer to create all tables and seed data.</p>
+        <code>@database/schema.sql</code>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <h4>Configure and run</h4>
+        <p>Update <code style="background:var(--cream-dark);color:var(--ink);padding:1px 5px;border-radius:4px;">config.py</code> with your Oracle credentials, then launch the app.</p>
+        <code>python app.py</code>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Libra<span>Vault</span></div>
+</footer>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal-overlay">
+  <div class="modal" id="modal-box">
+    <h3 id="modal-title">Add New Book</h3>
+    <div id="modal-form-book">
+      <div class="form-row">
+        <div class="form-group"><label>Title</label><input type="text" placeholder="Book title" /></div>
+        <div class="form-group"><label>Author</label><input type="text" placeholder="Author name" /></div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label>ISBN</label><input type="text" placeholder="978-..." /></div>
+        <div class="form-group">
+          <label>Genre</label>
+          <select><option>Tech</option><option>Fiction</option><option>Sci-Fi</option><option>History</option><option>Science</option></select>
+        </div>
+      </div>
+    </div>
+    <div id="modal-form-member" style="display:none">
+      <div class="form-row">
+        <div class="form-group"><label>Full Name</label><input type="text" placeholder="Member name" /></div>
+        <div class="form-group"><label>Email</label><input type="email" placeholder="email@example.com" /></div>
+      </div>
+      <div class="form-group"><label>Phone</label><input type="text" placeholder="+91 ..." /></div>
+    </div>
+    <div class="modal-footer">
+      <button class="modal-btn cancel" onclick="closeModal()">Cancel</button>
+      <button class="modal-btn save" onclick="saveModal()">Save to Database</button>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
