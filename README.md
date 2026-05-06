@@ -73,8 +73,8 @@ A robust, database-driven application designed to manage library operations, inc
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/your-username/library-management-system.git
-   cd library-management-system
+   git clone it clone https://github.com/Dipti-Makwana/Libravalt.git
+   cd Libravalt
    ```
 
 2. **Set up the database**
